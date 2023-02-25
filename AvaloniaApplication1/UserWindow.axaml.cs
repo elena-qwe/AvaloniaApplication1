@@ -1,8 +1,10 @@
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Metsys.Bson;
+using Microsoft.EntityFrameworkCore;
 
 namespace AvaloniaApplication1;
 
@@ -16,7 +18,8 @@ public partial class UserWindow : Window
 
     public void LoadData()
     {
-        UsersDataGrid.Items = Helper.GetContext().Users.Include(q=>q.IdRolesNavigation).ToList();
+        
+        UsersDataGrid.Items = Helper.GetContext().Users.Include(q=>q.IdRoleNavigation).ToList();
         RoleCBox.Items = Helper.GetContext().Roles.ToList();
         RoleCBox.SelectedIndex = 0;
     }
@@ -40,10 +43,11 @@ public partial class UserWindow : Window
         {
             Login = (string.IsNullOrWhiteSpace(LoginTBox.Text)) ? "q" : LoginTBox.Text,
             Password = (string.IsNullOrWhiteSpace(PasswordTBox.Text)) ? "q" : PasswordTBox.Text,
-            IdRolesNavigation = role,
+            IdRoleNavigation = role,
         };
         Helper.GetContext().Users.Add(user);
         Helper.GetContext().SaveChanges();
         LoadData();
     }
+   
 }

@@ -5,15 +5,15 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaApplication1.MainWindow"
         Title="AvaloniaApplication1">
-    <StackPanel Orientation="Vertical">
-        <TextBox Name="LoginTBox"
-                 Watermark="Введите логин" />
-        <TextBox Name="PasswordTBox"
-                 Watermark="Введите пароль"
-                 PasswordChar="*" />
-        <Button Content="Войти"
-                Name="LogInBtn"
-                Click="LogInBtn_OnClick" />
-        <TextBlock Name="TestTBox"/>
-    </StackPanel>
+        <StackPanel Orientation="Vertical">
+                <TextBox Name="LoginTBox"
+                         Watermark="Введите логин" />
+                <TextBox Name="PasswordTBox"
+                         Watermark="Введите пароль"
+                         PasswordChar="*" />
+                <Button Content="Войти"
+                        Name="LogInBtn"
+                        Click="LogInBtn_OnClick" />
+                <TextBlock Name="TestTBox"/>
+        </StackPanel>
 </Window>
